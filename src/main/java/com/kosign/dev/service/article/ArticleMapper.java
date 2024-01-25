@@ -25,6 +25,7 @@ public class ArticleMapper {
     private final CategoryMapper categoryMapper;
     private final CategoryRepository categoryRepository;
     private final PhotoRepository photoRepository;
+    private final PhotosMapper photosMapper;
 
     public Article mapToEntity(ArticleRequest payload, Users users, List<Categories> categories){
         return Article.builder()
@@ -38,16 +39,15 @@ public class ArticleMapper {
     public ArticleResponse mapToResponse(Article article){
         var articleResponses = categoryRepository.findAllCategories();
         List<CategoryResponse> responses = articleResponses.stream().map(categoryMapper::mapToResponse).toList();
-        var photos = photoRepository.findAll();
 
-        List<String> photosList = photos.stream().map(PhotoEntity::getPhoto).collect(Collectors.toList());
+
         return ArticleResponse.builder()
                 .id(article.getId())
                 .title(article.getTitle())
                 .description(article.getDescription())
                 .published(article.getPublished())
                 .categories(responses)
-                .photo(photosList)
+                .photo(article.getPhotos())
                 .user(article.getUser())
                 .build();
     }

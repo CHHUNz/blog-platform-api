@@ -9,5 +9,6 @@ import java.util.UUID;
 @Data
 @Builder
 public class PhotoResponse {
+    private UUID id;
     private String fileName;
 }

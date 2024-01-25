@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 public class PhotosMapper {
     public PhotoResponse mapToResponse (PhotoEntity photo){
         return PhotoResponse.builder()
+                .id(photo.getId())
                 .fileName(photo.getPhoto())
                 .build();
     }

@@ -26,7 +26,7 @@ public class ArticleResponse {
     private String description;
     private Boolean published;
     private Users user;
-    private List<String> photo;
+    private List<PhotoEntity> photo;
     List<CategoryResponse> categories;
 //    private List<BookMark> bookMarks;
 }

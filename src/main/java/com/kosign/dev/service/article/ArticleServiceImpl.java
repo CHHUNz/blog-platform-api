@@ -39,7 +39,7 @@ public class ArticleServiceImpl implements ArticleService {
         PhotoEntity photo1 = new PhotoEntity();
         for (PhotoEntity photo : articleRequest.photos()) {
             photo1.setPhoto(photo.getPhoto());
-            photo1.setArticle(entity);
+            photo1.setArticle(articleRepository.save(entity));
             photoRepository.save(photo1);
         }
 
@@ -76,5 +76,11 @@ public class ArticleServiceImpl implements ArticleService {
         article.setPublished(articleRequest.published());
         article.setUser(users);
         articleRepository.save(article);
+//        PhotoEntity photos = new PhotoEntity();
+//        for (PhotoEntity photo : articleRequest.photos()) {
+//            photos.setPhoto(photo.getPhoto());
+//            photos.setArticle(articleRepository.save(article));
+//            photoRepository.save(photos);
+//        }
     }
 }
