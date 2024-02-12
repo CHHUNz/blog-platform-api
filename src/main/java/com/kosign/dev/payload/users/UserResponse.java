@@ -13,11 +13,13 @@ import java.util.UUID;
 public class UserResponse {
     private UUID id;
     private String username;
+    private String email;
     private String role;
 
-    public UserResponse(UUID id, String username, String role) {
+    public UserResponse(UUID id, String username, String email, String role) {
         this.id = id;
         this.username = username;
         this.role = role;
+        this.email = email;
     }
 }

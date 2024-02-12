@@ -24,8 +24,6 @@ import java.util.stream.Collectors;
 public class ArticleMapper {
     private final CategoryMapper categoryMapper;
     private final CategoryRepository categoryRepository;
-    private final PhotoRepository photoRepository;
-    private final PhotosMapper photosMapper;
 
     public Article mapToEntity(ArticleRequest payload, Users users, List<Categories> categories){
         return Article.builder()

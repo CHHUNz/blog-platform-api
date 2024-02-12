@@ -22,6 +22,9 @@ public class Users {
     @Column(name = "user_name")
     private String username;
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "password")
     private String password;
 
@@ -34,10 +37,11 @@ public class Users {
     @OneToMany(mappedBy = "users")
     private List<BookMark> bookmarks;
     @Builder
-    public Users(UUID id, String username, String password, String role) {
+    public Users(UUID id, String username, String email, String password, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.role = role;
+        this.email = email;
     }
 }

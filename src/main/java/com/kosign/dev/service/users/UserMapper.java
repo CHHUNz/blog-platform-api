@@ -17,6 +17,7 @@ public class UserMapper {
                 .username(payload.username())
                 .role(payload.role())
                 .password(payload.password())
+                .email(payload.email())
                 .build();
     }
 
@@ -25,6 +26,7 @@ public class UserMapper {
                 .id(users.getId())
                 .username(users.getUsername())
                 .role(users.getRole())
+                .email(users.getEmail())
                 .build();
 
     }

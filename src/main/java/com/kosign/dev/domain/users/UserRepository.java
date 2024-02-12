@@ -21,6 +21,9 @@ public interface UserRepository extends JpaRepository<Users, UUID> {
     @Query("delete from Users where id = ?1")
     Optional<Users> deleteUsersById(UUID id);
 
+    @Query("select u from Users u where u.email= :email")
+    Optional<Users> findByEmail(String email);
+
 
 
 }
